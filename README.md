@@ -2,6 +2,20 @@
 
 Replace words in stdin and files using python standard library re.
 
+## Install
+
+```bash
+$ pip install -e git+https://github.com/emilioag/rem.git#egg=rem
+```
+
+### Virtualenv (python3)
+
+```bash
+$ python3 -m venv venv-rem
+$ source venv-rem/bin/activate
+$ pip install -e git+https://github.com/emilioag/rem.git#egg=rem
+```
+
 
 ## Use
 
