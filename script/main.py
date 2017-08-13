@@ -35,12 +35,13 @@ def file(replace, by, file_name, yes):
 @click.option('--replace', '-r')
 @click.option('--by', '-b')
 @click.option('--dir-name', '-d')
-@click.option('--yes', '-y', is_flag=True)
-@click.option('--ignore', '-i')
+@click.option('--yes', '-y', is_flag=True, help='If is true, replace all')
+@click.option('--ignore', '-i', help='Ignore all directories inside --dir-name equals to some --ignore')
 def dir(replace, by, extension, dir_name, yes, ignore):
     for path, dirs, files in os.walk(dir_name):
         path_as_list = path.split('/')
-        if path_as_list and ignore and path.split('/')[-1] in ignore.split(','):
+        ignore_as_list = ignore.split(',')
+        if any(filter(lambda x: x in ignore_as_list, path_as_list)):
             continue
         for f in files:
             ext = f.split('.')
