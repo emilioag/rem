@@ -1,6 +1,6 @@
 # Rem
 
-Replace words
+Replace words in stdin and files using python standard library re.
 
 
 ## Use

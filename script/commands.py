@@ -1,6 +1,6 @@
 import click
-from script.types import YesNo
-from script.lib import replace_file
+from types import YesNo
+from lib import replace_file
 
 
 def file(replace, by, file_name, yes):
@@ -15,6 +15,6 @@ def file(replace, by, file_name, yes):
         if yes:
             click.secho("REPLACED: {}".format(file_name), fg='green')
         else:
-            click.echo("PASS: {}".format(file_name), fg='green')
+            click.secho("PASS: {}".format(file_name), fg='green')
     else:
         click.secho("NO MATCHES FOUND: {}".format(file_name), fg='red')

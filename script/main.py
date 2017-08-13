@@ -1,7 +1,7 @@
 import click
 import re
 import os
-from script import commands
+import commands
 
 
 @click.group()
