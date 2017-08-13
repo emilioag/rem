@@ -1,6 +1,6 @@
 import click
-from types import YesNo
-from lib import replace_file
+from script.types import YesNo
+from script.lib import replace_file
 
 
 def file(replace, by, file_name, yes):
