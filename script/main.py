@@ -43,8 +43,13 @@ def dir(replace, by, extension, dir_name, yes, ignore):
         if path_as_list and ignore and path.split('/')[-1] in ignore.split(','):
             continue
         for f in files:
+            ext = f.split('.')
+            if len(ext) > 1:
+                ext = ext[-1]
             file_name = '{}/{}'.format(path, f)
-            commands.file(replace, by, file_name, yes)
+            if not extension or ext == extension:
+                commands.file(replace, by, file_name, yes)
+
             
 if __name__ == '__main__':
     main()
