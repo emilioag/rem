@@ -1,5 +1,5 @@
 import click
-from script.types import YesNo
+from script.custom_types import YesNo
 from script.lib import replace_file
 
 
