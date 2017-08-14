@@ -1,3 +1,4 @@
+import io
 import click
 from script.custom_types import YesNo
 from script.lib import replace_file
@@ -13,8 +14,12 @@ def file(replace, by, file_name, yes):
         if not yes:
             yes = click.prompt('Do you want to replace it? [y/N]', type=YesNo(), default=False)
         if yes:
-            click.secho("REPLACED: {}".format(file_name), fg='green')
-            click.secho(''.join(new))
+            try:
+                with io.open(file_name, 'w') as f:
+                    f.writelines(new)
+                click.secho("REPLACED: {}".format(file_name), fg='green')
+            except Exception as e:
+                click.secho(e, bg='red')
         else:
             click.secho("PASS: {}".format(file_name), fg='green')
     else:
