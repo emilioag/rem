@@ -38,6 +38,12 @@ def file(replace, by, file_name, yes):
 @click.option('--dir-name', '-d')
 @click.option('--yes', '-y', is_flag=True, help='If is true, replace all')
 @click.option('--ignore', '-i', help='Ignore all directories inside --dir-name equals to some --ignore')
+@click.option(
+    '--ignore',
+    '-i',
+    help='Ignore all directories inside --dir-name equals to some --ignore',
+    type=custom_types.List()
+)
 def dir(replace, by, extension, dir_name, yes, ignore):
     for path, dirs, files in os.walk(dir_name):
         path_as_list = path.split('/')
