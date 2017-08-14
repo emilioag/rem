@@ -16,10 +16,11 @@ def main():
 def stdin(replace, by, text):
     try:
         out = re.sub(replace, by, text)
+        click.echo(out)
     except Exception:
         click.echo("BAD PATTERN")
         exit(-1)
-    click.echo(out)
+
 
 @main.command()
 @click.option('--replace', '-r')
