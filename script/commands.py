@@ -14,6 +14,7 @@ def file(replace, by, file_name, yes):
             yes = click.prompt('Do you want to replace it? [y/N]', type=YesNo(), default=False)
         if yes:
             click.secho("REPLACED: {}".format(file_name), fg='green')
+            click.secho(''.join(new))
         else:
             click.secho("PASS: {}".format(file_name), fg='green')
     else:
