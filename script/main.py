@@ -1,7 +1,8 @@
 import click
 import re
-import os
 from script import commands
+from script import custom_types
+from script import lib
 
 
 @click.group()
@@ -29,7 +30,7 @@ def stdin(replace, by, text):
 @click.option('--yes', '-y', is_flag=True)
 def file(replace, by, file_name, yes):
     commands.file(replace, by, file_name, yes)
-        
+
 
 @main.command()
 @click.option('--extension', '-e')
